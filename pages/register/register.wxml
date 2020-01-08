@@ -1,0 +1,75 @@
+<view class="container">
+<l-avatar src="{{userInfo ? userInfo.avatarUrl : '/imgs/avatar.png'}}"
+          shape="circle"
+          size="168" text="{{userInfo ? userInfo.nickName : '用户名称'}}"
+          l-class="avatarImg"
+          l-text-class="avatarTxt"
+          placement="bottom"></l-avatar>
+<view style="color:red;width:100%;">注：带*为必填项</view>
+<form  bind:submit="getFormMsg">
+    <l-input label="姓  名"
+             name="name"
+             value="{{personMsg.name}}"
+             required="{{true}}"
+             label-layout="right"
+             placeholder="请输入姓名"></l-input>
+<!--    建议使用出生日期-->
+    <l-input label="年  龄"
+             name="year"
+             value="{{personMsg.year}}"
+             required="{{true}}"
+             label-layout="right"
+             placeholder="请输入年龄"></l-input>
+<!--    需要使用单选-->
+    <l-input label="性  别"
+             name="sex"
+             value="{{personMsg.sex}}"
+             required="{{true}}"
+             label-layout="right"
+             placeholder="请输入您的性别"></l-input>
+<!--电话和邮箱需要验证格式-->
+    <l-input label="电  话"
+             name="tel"
+             value="{{personMsg.tel}}"
+             required="{{true}}"
+             label-layout="right"
+             placeholder="请输入您的手机号"></l-input>
+    <l-input label="邮  箱"
+             name="email"
+             value="{{personMsg.email}}"
+             required="{{true}}"
+             label-layout="right"
+             placeholder="请输入您的邮箱"></l-input>
+    <l-input label="所学专业"
+             name="major"
+             value="{{personMsg.major}}"
+             label-layout="right"
+             placeholder="请输入所学专业"></l-input>
+    <l-input label="现阶段学历"
+             name="education"
+             value="{{personMsg.education}}"
+             label-layout="right"
+             placeholder="请输入当前阶段的学历"></l-input>
+    <l-input label="现阶段职业"
+             name="job"
+             value="{{personMsg.job}}"
+             label-layout="right"
+             placeholder="请输入您现在的职业"></l-input>
+<!--需要使用 滚动表单选择-->
+    <l-input label="毕业时间"
+             name="graduation"
+             value="{{personMsg.graduation}}"
+             label-layout="right"
+             placeholder="请输入毕业时间"></l-input>
+    <l-input label="兴趣爱好"
+             name="hobby"
+             value="{{personMsg.hobby}}"
+             label-layout="right"
+             placeholder="请输入您的兴趣爱好"></l-input>
+    <button formType="submit"
+            bind:tap="addPersonMsg"
+            class="btn"> 提交信息 </button>
+</form>
+</view>
+<l-toast></l-toast>
+<l-dialog></l-dialog>

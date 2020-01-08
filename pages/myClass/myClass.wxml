@@ -1,0 +1,56 @@
+<view class="container">
+    <l-segment placement="top"
+               active-key="{{defaultRootId}}"
+               active-color="#9a0000"
+               inactive-color="#494949"
+               even="{{true}}"
+               l-active-class="segment-item-active"
+               l-class="segment"
+               bind:linchange="onSegChange"
+               item-height="90">
+        <block wx:for="{{roots}}" wx:key="key">
+            <l-segment-item key="{{item.id}}" tab="{{item.name}}"></l-segment-item>
+        </block>
+    </l-segment>
+    <view class="contentBox">
+        <view wx:if="{{Classes.length==0}}" class="noLesson">
+            <image src="/imgs/noLesson.png"></image>
+            <text>您暂时还没有任何订单哦！</text>
+        </view>
+        <view class="content">
+            <block wx:for="{{Classes}}" wx:key="index">
+                <view wx:if="{{item.status==1}}"
+                      data-lesson-id="{{item.product_id}}"
+                      class="item" bind:tap="onGotoLearn">
+                    <image src="{{item.image}}"></image>
+                    <view class="right">
+                        <text class="title">{{item.title}}</text>
+                        <text>{{item.description}}</text>
+                        <view class="btns">
+                            <view class="pay">已付款</view>
+                            <l-button l-class="btn seeLesson"
+                                      catch:tap="onGotoOrder">订单详情
+                            </l-button>
+                        </view>
+                    </view>
+                </view>
+                <view wx:if="{{item.status==0}}"
+                      class="item"
+                      data-lesson-id="{{item.product_id}}"
+                      bind:tap="onGotoDetail">
+                    <image src="{{item.image}}"></image>
+                    <view class="right">
+                        <text class="title">{{item.title}}</text>
+                        <text>{{item.description}}</text>
+                        <view class="btns">
+                            <view class="pay red">待付款</view>
+                            <l-button l-class="btn order"
+                                      catch:tap="onPayOrder">课程支付
+                            </l-button>
+                        </view>
+                    </view>
+                </view>
+            </block>
+        </view>
+    </view>
+</view>

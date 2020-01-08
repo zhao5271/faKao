@@ -1,0 +1,76 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/news/news",
+    "pages/register/register",
+    "pages/my/my",
+    "pages/lessonDetail/lessonDetail",
+    "pages/cart/cart",
+    "pages/myClass/myClass",
+    "pages/learn/learn",
+    "pages/like/like",
+    "pages/pay/pay",
+    "pages/order/order",
+    "pages/newsDetail/newsDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#9a0000",
+    "navigationBarTitleText": "法考直通车",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "color": "#BEBEBE",
+    "selectedColor": "#9a0000",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/home/home",
+        "iconPath": "/imgs/tab/home.png",
+        "selectedIconPath": "/imgs/icon/homeActived.png"
+      },
+      {
+        "text": "新闻中心",
+        "pagePath": "pages/news/news",
+        "iconPath": "/imgs/tab/news.png",
+        "selectedIconPath": "/imgs/icon/newsActived.png"
+      },
+      {
+        "text": "提交信息",
+        "pagePath": "pages/register/register",
+        "iconPath": "/imgs/tab/register.png",
+        "selectedIconPath": "/imgs/icon/registerActived.png"
+      },
+      {
+        "text": "个人中心",
+        "pagePath": "pages/my/my",
+        "iconPath": "/imgs/tab/my.png",
+        "selectedIconPath": "/imgs/icon/myActived.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "s-lesson": "/components/lesson/index",
+    "s-catalog": "/components/catalog/index",
+    "l-price": "/miniprogram_npm/lin-ui/price/index",
+    "l-search-bar": "/miniprogram_npm/lin-ui/search-bar/index",
+    "l-icon": "/miniprogram_npm/lin-ui/icon/index",
+    "l-button": "/miniprogram_npm/lin-ui/button/index",
+    "l-tabs": "/miniprogram_npm/lin-ui/tabs/index",
+    "l-tabpanel": "/miniprogram_npm/lin-ui/tabpanel/index",
+    "l-input": "/miniprogram_npm/lin-ui/input/index",
+    "l-avatar": "/miniprogram_npm/lin-ui/avatar/index",
+    "l-list": "/miniprogram_npm/lin-ui/list/index",
+    "l-checkbox-group": "/miniprogram_npm/lin-ui/checkbox-group/index",
+    "l-checkbox": "/miniprogram_npm/lin-ui/checkbox/index",
+    "l-loading": "/miniprogram_npm/lin-ui/loading/index",
+    "l-message": "/miniprogram_npm/lin-ui/message/index",
+    "l-dialog": "/miniprogram_npm/lin-ui/dialog/index",
+    "l-toast": "/miniprogram_npm/lin-ui/toast/index",
+    "l-segment": "/miniprogram_npm/lin-ui/segment/index",
+    "l-segment-item": "/miniprogram_npm/lin-ui/segment-item/index"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

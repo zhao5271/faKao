@@ -1,0 +1,16 @@
+<view class="container" id="{{lesson.id}}" bind:tap="onGotoLessonDetail">
+    <image class="img" src="{{lesson.image}}"></image>
+    <view class="right">
+        <view>
+            <text class="title">{{lesson.store_name}}</text>
+            <l-price value="{{lesson.price}}" color="#000000"></l-price>
+        </view>
+       <!-- <view class="addCart">
+            <view class="btn"
+                  bind:catchtap="addCart">
+                <text>加入购物车</text>
+            </view>
+        </view>-->
+    </view>
+</view>
+

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "s-news-list": "/components/newsList/index"
+  },
+  "navigationBarTitleText": "新闻中心"
+}

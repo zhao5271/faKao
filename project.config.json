@@ -1,0 +1,155 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"enhance": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.10.0",
+	"appid": "wxc698e508ef75ee6b",
+	"projectname": "faKao",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "课程详情页",
+					"pathName": "pages/lessonDetail/lessonDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/news/news",
+					"pathName": "pages/news/news",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/register/register",
+					"pathName": "pages/register/register",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/my/my",
+					"pathName": "pages/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "购物车",
+					"pathName": "pages/cart/cart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "我的课程",
+					"pathName": "pages/myClass/myClass",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的收藏",
+					"pathName": "pages/like/like",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "确认订单",
+					"pathName": "pages/pay/pay",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "课程观看页面",
+					"pathName": "pages/learn/learn",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "课程观看页面",
+					"pathName": "pages/learn/learn",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "课程详情页",
+					"pathName": "pages/lessonDetail/lessonDetail",
+					"query": "id=3",
+					"scene": null
+				}
+			]
+		}
+	}
+}

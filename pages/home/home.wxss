@@ -1,0 +1,97 @@
+.search {
+    position: absolute;
+    z-index: 99;
+    top: 14rpx;
+}
+.search-bar {
+    width:616rpx;
+    height:53rpx;
+    background:rgba(255,255,255,1);
+    border:1px solid rgba(220,222,226,1);
+    box-shadow:2rpx 3rpx 8rpx 0rpx rgba(0, 0, 0, 0.08);
+    opacity:0.6;
+    border-radius:10rpx;
+}
+.container {
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    background-color: #eeeeee;
+}
+.swiper{
+    width: 100%;
+    height: 400rpx;
+}
+.news {
+    position: relative;
+    width:722rpx;
+}
+.news-content {
+    width: 100%;
+    height:115rpx;
+    background:rgba(255,255,255,1);
+    box-shadow:0rpx 2rpx 7rpx 1rpx rgba(0, 0, 0, 0.15);
+    border-radius:10rpx;
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    transform: translateY(-50%);
+}
+.news-item {
+    width:89rpx;
+    height:89rpx;
+    border-radius:50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.news-item:first-child {
+    background:linear-gradient(135deg,rgba(40,170,245,1) 0%,rgba(0,113,255,1) 100%);
+}
+.news-item:nth-child(2) {
+    background:linear-gradient(-33deg,rgba(255,110,2,1) 0%,rgba(255,216,0,1) 100%);
+}
+.news-item:nth-child(3) {
+    background:linear-gradient(-54deg,rgba(199,38,233,1) 0%,rgba(211,153,255,1) 100%);
+}
+.news-item:last-child {
+    background:linear-gradient(-48deg,rgba(2,201,109,1) 0%,rgba(105,233,168,1) 100%);
+}
+.news-item>text {
+    width:60rpx;
+    font-size:20rpx;
+    font-weight:500;
+    color:rgba(255,255,255,1);
+    line-height:23rpx;
+}
+.news-item:nth-child(2)>text , .news-item:nth-child(3)>text {
+    width:40rpx !important;
+}
+
+.ad {
+    width:722rpx;
+    height:87rpx;
+    border-radius:10rpx;
+    margin-top: 72rpx;
+}
+
+.lesson {
+    box-sizing:border-box;
+    width: 722rpx;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 10rpx;
+    margin-top: 11rpx;
+    padding-left: 11rpx;
+    padding-right: 21rpx;
+}
+.lesson .title {
+    font-size:30rpx;
+    font-weight:500;
+    color:rgba(0,0,0,1);
+    margin-left: 9rpx;
+    margin-top: 17rpx;
+    margin-bottom: 21rpx;
+}

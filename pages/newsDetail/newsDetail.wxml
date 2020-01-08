@@ -1,0 +1,11 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+
+<view class="container">
+    <view class="title">{{newsDetail.title}}</view>
+    <view class="note">
+        <text class="author">{{newsDetail.author}}</text>
+        <text class="time">{{time}}</text>
+    </view>
+    <!--新闻详情-->
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+</view>

@@ -1,0 +1,57 @@
+<view class="container">
+    <l-checkbox-group bind:linchange="onChangeTap">
+        <view wx:if="{{cart.length==0}}" class="noLesson">
+            <image src="/imgs/noLesson.png"></image>
+            <text>您的购物车是空的，快去首页逛逛吧！</text>
+        </view>
+        <block wx:for="{{cart}}" wx:key="index">
+            <view class="checkbox"
+                  data-cart-id="{{item.id}}"
+                  bind:longpress="onLongpress">
+                <l-checkbox key="{{index}}"
+                            checked="{{item.isChecked}}"
+                            select-color="#FE5656"
+                            custom="{{true}}">
+                    <image class="icon"
+                           src="{{item.isChecked?iconSelect:icon}}"
+                           slot="icon"></image>
+                </l-checkbox>
+                <view class="slot"
+                      data-lesson-id="{{item.product_id}}"
+                      bind:tap="onGotoDetail">
+                    <image class="checkbox-img" src="{{item.image}}"></image>
+                    <view class="right">
+                        <text>{{item.title}}</text>
+<!--                        <text>{{item.description}}</text>-->
+                        <l-price value="{{item.price}}"
+                                 color="#FE5656"
+                                 size="40"></l-price>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </l-checkbox-group>
+</view>
+<view class="footer">
+    <l-checkbox-group bind:linchange="onSelcetAll">
+        <l-checkbox custom="{{true}}"
+                    size="40rpx"
+                    checked="{{isCheckAll}}">
+            <image class="icon"
+                   src="{{isCheckAll?iconSelect:icon}}"
+                   slot="icon"></image>
+            <text class="totalText">全选</text>
+        </l-checkbox>
+    </l-checkbox-group>
+    <view style="flex:1;"></view>
+    <view class="total">
+        <text>合计</text>
+        <l-price value="{{totalPrice}}"
+                 color="#FE5656"
+                 size="24"></l-price>
+    </view>
+    <l-button bg-color="#FE5656"
+              width="134" height="54">结算
+    </l-button>
+    <l-dialog></l-dialog>
+</view>

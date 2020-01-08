@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatarTxt {
+    font-size:36rpx;
+    font-weight:400;
+    color: #9a0000;
+    line-height:9px;
+}
+.btn {
+    margin-top: 40rpx;
+    margin-bottom: 40rpx;
+    background-color: #9a0000;
+    width: 535rpx !important;
+    color: #ffffff;
+}

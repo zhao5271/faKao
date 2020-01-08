@@ -1,0 +1,39 @@
+.container{
+    width: 100%;
+    background-color: #fff;
+}
+
+.content{
+    overflow: hidden;
+}
+.title{
+    border-bottom: 2rpx solid #e2e2e2;
+    background: white;
+    font-size: 32rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding-left: 20rpx;
+    padding-right: 30rpx;
+}
+.title>image {
+    height: 24rpx;
+    width: 12rpx;
+}
+
+.list{
+    width: 400rpx;
+}
+.list>view {
+    height: 80rpx;
+    line-height: 80rpx;
+    font-size:28rpx;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+    box-sizing: border-box;
+    padding-left: 120rpx;
+}

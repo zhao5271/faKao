@@ -1,0 +1,21 @@
+<view class="container">
+    <view class="content">
+        <view class="header">
+            订单编号：5644841655151321
+        </view>
+        <view class="item">
+            <image src="/imgs/lesson.png"></image>
+            <view class="right">
+                <view>
+                    <view class="title">VIP面授A班</view>
+                    <view>时间：2019-12-01 12:30</view>
+                    <view>支付方式：微信支付</view>
+                </view>
+                <view class="btns">
+                    <l-price value="5000" color="#FE5656"></l-price>
+                    <view class="pay">已完成</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

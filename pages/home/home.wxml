@@ -1,0 +1,43 @@
+<view class="container">
+    <view class="search">
+    <l-search-bar placeholder="请输入"
+                  l-class="search-bar"
+                  show-cancel="{{false}}"></l-search-bar>
+    </view>
+    <!--轮播图-->
+    <swiper class="swiper"
+            indicator-active-color="#028BFF"
+            autoplay circular
+            indicator-dots>
+        <block wx:for="{{banners}}" wx:key="index">
+            <swiper-item id="{{item.newsId}}" bind:tap="onGotoNewsDetail">
+                <image class="swiper" src="{{item.pic}}"></image>
+            </swiper-item>
+        </block>
+    </swiper>
+    <!--新闻-->
+    <view class="news">
+        <view class="news-content">
+            <view class="news-item" id="1" bind:tap="onGotoNewsDetail">
+                <text>法考的重要性</text>
+            </view>
+            <view class="news-item" id="2" bind:tap="onGotoNewsDetail">
+                <text>课程介绍</text>
+            </view>
+            <view class="news-item" id="3" bind:tap="onGotoNewsDetail">
+                <text>师资团队</text>
+            </view>
+            <view class="news-item" id="4" bind:tap="onGotoNewsDetail">
+                <text>法考相关新闻</text>
+            </view>
+        </view>
+    </view>
+    <image class="ad" src="/imgs/ad.png"></image>
+<!--课程列表-->
+    <view class="lesson">
+        <view class="title">直播好课</view>
+        <block wx:for="{{classes}}" wx:key="index">
+            <s-lesson lesson="{{item}}"></s-lesson>
+        </block>
+    </view>
+</view>

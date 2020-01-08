@@ -1,0 +1,33 @@
+<view class="container">
+    <view class="avatar">
+        <l-button open-type="getUserInfo"
+                  lang="zh_CN"
+                  l-class="button"
+                  bg-color="#9a0000"
+                  height="200"
+                  bind:getuserinfo="onGotUserInfo">
+            <l-avatar src="{{userInfo.avatarUrl ? userInfo.avatarUrl : '/imgs/avatar.png'}}"
+                      shape="circle"
+                      size="138"
+                      text="{{userInfo.nickName ? userInfo.nickName : '请登录'}}"
+                      l-text-class="nickname"
+                      placement="bottom">
+            </l-avatar>
+        </l-button>
+    </view>
+    <view class="listBox">
+        <l-list title="我的购物车"
+                gap="55"
+                url="/pages/cart/cart"
+                image="/imgs/person/cart.png"></l-list>
+        <l-list title="我的课程"
+                gap="55"
+                url="/pages/myClass/myClass"
+                image="/imgs/person/lesson.png"></l-list>
+        <l-list title="我的收藏"
+                gap="55"
+                url="/pages/like/like"
+                image="/imgs/person/like.png"></l-list>
+    </view>
+    <l-toast></l-toast>
+</view>

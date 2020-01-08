@@ -1,0 +1,18 @@
+<view class="container" bind:tap="selectToggle">
+    <view class="content">
+        <view class="title">
+            <text>{{data.chapter.title}}</text>
+            <image src="/imgs/right.png"
+                   animation="{{boultAnimation}}"
+                   alt=""></image>
+        </view>
+        <view class="list" wx:if="{{selectShow}}">
+            <block wx:for="{{data.section}}" wx:key="index">
+                <view class="item">
+                    {{item.title}}
+                </view>
+            </block>
+        </view>
+    </view>
+
+</view>

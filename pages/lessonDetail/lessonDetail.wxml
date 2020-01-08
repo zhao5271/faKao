@@ -1,0 +1,65 @@
+<import src="../../wxParse/wxParse.wxml"></import>
+
+<view class="container">
+    <image src="{{lessonData.image}}"></image>
+    <view class="content">
+        <view class="left">
+            <l-price value="{{lessonData.price}}"
+                     size="24"
+                     color="#FF0000"></l-price>
+            <span>{{lessonData.store_name}}</span>
+        </view>
+        <l-button open-type="share"
+                  width="70"
+                  l-class="right">
+            <l-icon name="share"
+                    color="#B2B2B2"
+                    size="39"></l-icon>
+            <span>分享</span>
+        </l-button>
+    </view>
+<!--课程描述-->
+    <view style="margin-bottom: 100rpx;">
+      <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+    </view>
+    <view class="btn">
+        <view class="left">
+            <l-button open-type="contact"
+                      bg-color="#ffffff"
+                      width="80"
+                      height="50">
+                <view>
+                    <l-icon size="40"
+                            name="customer-service"
+                            color="#010101"></l-icon>
+                    <span>咨询客服</span>
+                </view>
+            </l-button>
+            <view wx:if="{{!isLike}}"
+                  class="like"
+                  bind:tap="addLike"
+                  data-id="{{id}}">
+                <image class="likeIcon"
+                       src="/imgs/lesson/like.png"></image>
+                <span>加入收藏</span>
+            </view>
+            <view class="like"
+                  wx:else
+                  bind:tap="delLike"
+                  data-id="{{id}}">
+                <image class="likeIcon"
+                       src="/imgs/lesson/likeSelected.png"></image>
+                <span>取消收藏</span>
+            </view>
+        </view>
+        <view class="right">
+            <l-button width="185" height="57"
+                      bind:lintap="addCart"
+                      bg-color="#FF6B03">加入购物车</l-button>
+            <l-button width="185" height="57"
+                      bg-color="#FE5656" bind:lintap="onGotoPay">立即购买</l-button>
+        </view>
+    </view>
+    <l-message></l-message>
+    <l-dialog></l-dialog>
+</view>

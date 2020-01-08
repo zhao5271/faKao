@@ -1,0 +1,43 @@
+.container {
+    width: 690rpx;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+
+.img {
+    width:309rpx;
+    height:167rpx;
+    border-radius:10rpx;
+}
+
+.right {
+    width: 361rpx;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+}
+.right .title{
+    display: flex;
+    margin-bottom: 56rpx;
+}
+.addCart {
+    display: flex;
+    align-items: flex-end;
+}
+.btn {
+    width:121rpx;
+    height:37rpx;
+    background:rgba(235,97,0,1);
+    border-radius:5rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn>text {
+    font-size:20rpx;
+    font-weight:400;
+    color:rgba(254,255,255,1);
+    line-height:22rpx;
+}
