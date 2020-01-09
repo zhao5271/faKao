@@ -9,3 +9,4 @@
 .idea/vcs.xml
 .idea/watcherTasks.xml
 miniprogram_npm/
+node_modules/

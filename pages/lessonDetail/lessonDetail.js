@@ -26,6 +26,7 @@ Page({
     })
     await this.getDetail()
     await this.initIsLike()
+    console.log(this.data.lessonData)
   },
 
 //  初始化商品详情数据
@@ -39,26 +40,6 @@ Page({
     WxParse.wxParse('content', 'html', description, this)
   },
 
-//  添加收藏
-  async addLike () {
-    if (!this.data.uid) {
-      this.toLogin()
-      return
-    }
-    const data = await Like.addLike(this.data.uid, this.data.lessonData)
-    wx.lin.showDialog({
-      type: 'confirm',
-      title: '提示',
-      content: `${data.msg}是否前往我的收藏查看`,
-      success: (res) => {
-        if (res.confirm) {
-          wx.navigateTo({
-            url: '/pages/like/like'
-          })
-        }
-      }
-    })
-  },
 //  添加到购物车
   async addCart () {
     if (!this.data.uid) {
@@ -109,6 +90,30 @@ Page({
       this.setData({ isLike: false })
     }
   },
+
+//  添加收藏
+  async addLike () {
+    if (!this.data.uid) {
+      this.toLogin()
+      return
+    }
+    const data = await Like.addLike(this.data.uid, this.data.lessonData)
+    wx.lin.showDialog({
+      type: 'confirm',
+      title: '提示',
+      content: `${data.msg}是否前往我的收藏查看`,
+      success: (res) => {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '/pages/like/like'
+          })
+        }else if (res.cancel) {
+          this.refresh()
+        }
+      }
+    })
+  },
+
   // 取消课程收藏
   delLike () {
     var that = this
@@ -121,18 +126,28 @@ Page({
           const data = Like.delItem(this.data.likeId)
           that.setData({ isLike: false })
         }
-      }
+      },
     })
   },
   // 跳转到支付页面
   onGotoPay (event) {
-    console.log(event)
+    const productId = this.data.lessonData.id
+    const image = this.data.lessonData.image
+    const title = this.data.lessonData.store_name
+    const description = "测试"
     if (!this.data.uid) {
       this.toLogin()
       return
     }
     wx.navigateTo({
-      url: '/pages/pay/pay'
+      url: `/pages/pay/pay?productId=${productId}&image=${image}&title=${title}&description=${description}`
     })
   },
+  // 刷新，重新加载页面
+  refresh () {
+    var that = this;
+    wx.redirectTo({
+      url: `/pages/lessonDetail/lessonDetail?id=${that.data.id}`
+    })
+  }
 })

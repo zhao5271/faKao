@@ -37,8 +37,10 @@ Page({
 
 //  前往支付页面
   onPayOrder (event) {
+    console.log(event);
+    const id = Number.parseInt(event.currentTarget.dataset.lessonId)
     wx.navigateTo({
-      url: "/pages/pay/pay"
+      url: `/pages/pay/pay?productId=${id}`
     })
   },
 //  前往课程观看页面
@@ -64,7 +66,9 @@ Page({
 //  加载所有课程
   async initAllClass () {
     const uid = wx.getStorageSync('uid')
+    console.log(uid);
     const res = await Order.getList(uid)
+    console.log(res);
     let payedClass = []
     let noPayClass = []
     res.data.forEach(item => {

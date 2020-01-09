@@ -83,11 +83,11 @@ page {
 
 .like {
     width: 80rpx;
-    height: 68rpx;
     justify-content: space-between;
     background-color: #fff;
 }
 .likeIcon {
     width:40rpx;
     height:35rpx;
+    margin-bottom: 14rpx;
 }

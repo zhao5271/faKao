@@ -12,17 +12,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.data.productId = options.productId
+    this.data.image = options.image
+    this.data.title = options.title
+    this.data.description = options.description
   },
   //  前往支付
   toCreatePay () {
-    const orderId = this.createOrderId();
     const openid = wx.getStorageSync("openid")
-    console.log(openid)
+    const uid = wx.getStorageSync("uid")
+    const productId = this.data.productId;
+    const title = this.data.title;
+    const image = this.data.image;
+    const description = this.data.description;
     wx.request({
       url: 'http://smoothwater.natapp1.cc/pay/mini_pay',
       data:{
         openid,
+        uid,
+        productId,
+        title,
+        image,
+        description,
         amount: 0.01
       },
       method:'GET',
