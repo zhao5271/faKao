@@ -29,6 +29,7 @@
                         <view class="btns">
                             <view class="pay">已付款</view>
                             <l-button l-class="btn seeLesson"
+                                      data-order-id="{{item.product_id}}"
                                       catch:tap="onGotoOrder">订单详情
                             </l-button>
                         </view>
@@ -45,6 +46,7 @@
                         <view class="btns">
                             <view class="pay red">待付款</view>
                             <l-button l-class="btn order"
+                                      data-product-id="{{item.product_id}}"
                                       catch:tap="onPayOrder">课程支付
                             </l-button>
                         </view>

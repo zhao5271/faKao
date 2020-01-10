@@ -1,9 +1,10 @@
 <view class="container">
+    <!-- 搜索框
     <view class="search">
     <l-search-bar placeholder="请输入"
                   l-class="search-bar"
                   show-cancel="{{false}}"></l-search-bar>
-    </view>
+    </view>-->
     <!--轮播图-->
     <swiper class="swiper"
             indicator-active-color="#028BFF"

@@ -3,6 +3,7 @@ import { Lesson } from '../../models/lesson'
 import * as WxParse from '../../wxParse/wxParse'
 import { Like } from '../../models/like'
 import { Cart } from '../../models/Cart'
+import { Order } from '../../models/order'
 
 Page({
 
@@ -26,7 +27,7 @@ Page({
     })
     await this.getDetail()
     await this.initIsLike()
-    console.log(this.data.lessonData)
+    await this.initStatus()
   },
 
 //  初始化商品详情数据
@@ -81,7 +82,6 @@ Page({
   },
 //  初始化课程的收藏状态
   async initIsLike () {
-    // const uid = wx.getStorageSync('uid')
     const data = await Like.getIsLike(this.data.lessonData.id, this.data.uid)
     if (data) {
       this.setData({ isLike: true })
@@ -131,16 +131,15 @@ Page({
   },
   // 跳转到支付页面
   onGotoPay (event) {
+    console.log(this.data.lessonData)
     const productId = this.data.lessonData.id
-    const image = this.data.lessonData.image
-    const title = this.data.lessonData.store_name
-    const description = "测试"
+    const status = this.data.status
     if (!this.data.uid) {
       this.toLogin()
       return
     }
     wx.navigateTo({
-      url: `/pages/pay/pay?productId=${productId}&image=${image}&title=${title}&description=${description}`
+      url: `/pages/pay/pay?productId=${productId}&status=${status}`
     })
   },
   // 刷新，重新加载页面
@@ -149,5 +148,21 @@ Page({
     wx.redirectTo({
       url: `/pages/lessonDetail/lessonDetail?id=${that.data.id}`
     })
-  }
+  },
+  // 获取课程的支付状态
+  async initStatus () {
+    const res = await Order.getStatus(this.data.uid, this.data.id)
+    console.log(res)
+    this.setData({
+      status: res.data
+    })
+    console.log(this.data.status);
+  },
+  // 进入课程观看页面
+  onGotoLearn () {
+    wx.navigateTo({
+      url:`/pages/learn/learn`
+    })
+  },
+
 })

@@ -22,9 +22,9 @@
                 </div>
                 <view class="btns">
                     <!-- 添加跳转付款页面 -->
-                    <l-button l-class="btn order"
+                    <!--<l-button l-class="btn order"
                               bind:tap="onPayOrder">立即购买
-                    </l-button>
+                    </l-button>-->
                 </view>
             </view>
         </view>

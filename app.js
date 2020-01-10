@@ -2,5 +2,5 @@
 App({
   globalData: {
     userInfo: null
-  }
+  },
 })

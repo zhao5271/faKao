@@ -53,10 +53,14 @@
             </view>
         </view>
         <view class="right">
-            <l-button width="185" height="57"
+            <!--<l-button width="185" height="57"
                       bind:lintap="addCart"
-                      bg-color="#FF6B03">加入购物车</l-button>
-            <l-button width="185" height="57"
+                      bg-color="#FF6B03">加入购物车</l-button>-->
+            <l-button width="185" height="57" wx:if="{{status==2}}"
+                      bg-color="#FE5656" bind:lintap="onGotoLearn">开始学习</l-button>
+            <l-button width="185" height="57" wx:if="{{status==1}}"
+                      bg-color="#FE5656" bind:lintap="onGotoPay">待支付</l-button>
+            <l-button width="185" height="57" wx:if="{{status==0}}"
                       bg-color="#FE5656" bind:lintap="onGotoPay">立即购买</l-button>
         </view>
     </view>

@@ -73,7 +73,7 @@ page {
     align-items: center;
 }
 .btn .right {
-    width: 380rpx;
+    width: 180rpx;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

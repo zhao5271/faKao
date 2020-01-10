@@ -16,17 +16,17 @@
         </l-button>
     </view>
     <view class="listBox">
-        <l-list title="我的购物车"
+        <!--<l-list title="我的购物车"
                 gap="55"
                 url="/pages/cart/cart"
-                image="/imgs/person/cart.png"></l-list>
+                image="/imgs/person/cart.png"></l-list>-->
         <l-list title="我的课程"
                 gap="55"
-                url="/pages/myClass/myClass"
+                bind:lintap="onGotoClasses"
                 image="/imgs/person/lesson.png"></l-list>
         <l-list title="我的收藏"
                 gap="55"
-                url="/pages/like/like"
+                bind:lintap="onGotoLike"
                 image="/imgs/person/like.png"></l-list>
     </view>
     <l-toast></l-toast>

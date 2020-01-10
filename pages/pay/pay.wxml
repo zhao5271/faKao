@@ -1,14 +1,14 @@
 <view class="container">
     <view class="goods">
         <div>
-            <image src="/imgs/order.png"></image>
+            <image src="{{image}}"></image>
             <view class="right">
                 <div class="title">
                     <text>法考直通车</text>
-                    <text>法考直通车某某课 程成现时免费，今天截至。</text>
+                    <text>{{title}},限时优惠，今天截至。</text>
                 </div>
                 <div class="price">
-                    <l-price value="99.00" color="#E64239" size="36"></l-price>
+                    <l-price value="{{price}}" color="#E64239" size="36"></l-price>
                     <text>x1</text>
                 </div>
             </view>
@@ -22,7 +22,7 @@
     <view class="detail">
         <view class="item">
             <text>商品价格</text>
-            <l-price value="99.00" color="#101010" size="28"></l-price>
+            <l-price value="{{price}}" color="#101010" size="28"></l-price>
         </view>
         <view class="item">
             <text>限时优惠</text>
@@ -33,21 +33,30 @@
             <text class="green">微信支付</text>
         </view>
         <view class="bottom">
-            <text>共1件商品</text>
+            <text>共  1  件商品</text>
             <text>共计：</text>
-            <l-price value="99.00" color="#FC3F27" size="28"></l-price>
+            <l-price value="{{price}}" color="#FC3F27" size="28"></l-price>
         </view>
     </view>
 
     <view class="order">
         <text>共计金额：</text>
-        <text class="priceNum">99.00</text>
+        <text class="priceNum">{{price}}</text>
         <l-button shape="semicircle"
                   width="166"
                   height="57"
                   size="30"
                   l-class="btn"
+                  wx:if="{{status==0}}"
                   bind:lintap="toCreatePay"
                   bg-color="#FE5656">提交订单</l-button>
+        <l-button shape="semicircle"
+                  width="166"
+                  height="57"
+                  size="30"
+                  l-class="btn"
+                  wx:if="{{status==1}}"
+                  bind:lintap="toOverPay"
+                  bg-color="#FE5656">待付款</l-button>
     </view>
 </view>

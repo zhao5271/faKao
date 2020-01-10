@@ -37,27 +37,28 @@ Page({
 
 //  前往支付页面
   onPayOrder (event) {
-    console.log(event);
-    const id = Number.parseInt(event.currentTarget.dataset.lessonId)
+    const id = Number.parseInt(event.currentTarget.dataset.productId)
+    const status = 1
     wx.navigateTo({
-      url: `/pages/pay/pay?productId=${id}`
+      url: `/pages/pay/pay?productId=${id}&status=${status}`
     })
   },
 //  前往课程观看页面
   onGotoLearn (event) {
+    const id = Number.parseInt(event.currentTarget.dataset.lessonId)
     wx.navigateTo({
-      url: `/pages/learn/learn`
+      url: `/pages/learn/learn?id=${id}`
     })
   },
 //  查看订单详情
   onGotoOrder (event) {
+    const orderId = Number.parseInt(event.currentTarget.dataset.orderId)
     wx.navigateTo({
-      url: "/pages/order/order"
+      url: `/pages/order/order?orderId=${orderId}`
     })
   },
 //  进去课程详情页
   onGotoDetail (event) {
-    console.log(event)
     const id = Number.parseInt(event.currentTarget.dataset.lessonId)
     wx.navigateTo({
       url: `/pages/lessonDetail/lessonDetail?id=${id}`

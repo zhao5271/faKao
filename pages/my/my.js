@@ -10,7 +10,8 @@ Page({
    */
   data: {
     userInfo: Object,
-    openid: String
+    openid: String,
+    isLogin: false
   },
 
   /**
@@ -93,6 +94,39 @@ Page({
         console.log('调用失败')
       }
     })
+  },
+
+  // 进入个人课程页面
+  onGotoClasses (event) {
+    if(!this.isLogin()){
+      return
+    }
+    wx.navigateTo({
+      url: '/pages/myClass/myClass'
+    })
+  },
+  //  进入个人收藏页面
+  onGotoLike (event) {
+    if(!this.isLogin()){
+      return
+    }
+    wx.navigateTo({
+      url: "/pages/like/like"
+    })
+  },
+
+  // 登录校验
+  isLogin () {
+    const uid = wx.getStorageSync("uid")
+    if (!uid) {
+        wx.lin.showToast({
+          title: '请登录！',
+          icon: 'error',
+          mark: true
+        })
+        return false
+    }
+    return true
   }
 })
 
