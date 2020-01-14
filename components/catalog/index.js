@@ -31,17 +31,27 @@ Component({
       })
       this.animation = animation
 
-      if (this.data.selectShow) {
+      if (this.data.selected) {
         animation.rotate(0).step();
       }else{
         animation.rotate(90).step();
       }
 
       this.setData({
-        selectShow: !this.data.selectShow,
+        selected: !this.data.selected,
         boultAnimation:animation.export(),
       })
-      console.log(this.data.selectShow)
+      console.log(this.data.selected)
     },
+
+    onGotoLearn (e) {
+      console.log(e)
+      const id = Math.floor(e.currentTarget.dataset.lessonId/100)
+      const url = e.currentTarget.dataset.url
+      const title = e.currentTarget.dataset.title
+      wx.redirectTo({
+        url: `/pages/learn/learn?id=${id}&url=${url}&title=${title}`
+      })
+    }
   },
 })

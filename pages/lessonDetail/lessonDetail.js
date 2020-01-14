@@ -161,7 +161,7 @@ Page({
   // 进入课程观看页面
   onGotoLearn () {
     wx.navigateTo({
-      url:`/pages/learn/learn`
+      url:`/pages/learn/learn?id=${this.data.id}`
     })
   },
 

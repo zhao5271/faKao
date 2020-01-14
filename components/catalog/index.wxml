@@ -1,18 +1,21 @@
 <view class="container" bind:tap="selectToggle">
     <view class="content">
         <view class="title">
-            <text>{{data.chapter.title}}</text>
+            <text>{{data.name}}</text>
             <image src="/imgs/right.png"
                    animation="{{boultAnimation}}"
                    alt=""></image>
         </view>
-        <view class="list" wx:if="{{selectShow}}">
-            <block wx:for="{{data.section}}" wx:key="index">
-                <view class="item">
-                    {{item.title}}
+        <view class="list" wx:if="{{selected}}">
+            <block wx:for="{{data.categoryVoList}}" wx:key="index">
+                <view class="item"
+                      data-url="{{item.url}}"
+                      data-lesson-id="{{item.parentId}}"
+                      data-title="{{item.name}}"
+                      bind:tap="onGotoLearn">
+                    {{item.name}}
                 </view>
             </block>
         </view>
     </view>
-
 </view>
