@@ -1,4 +1,7 @@
 // components/catalog/index.js
+import { Store } from '../../utils/store'
+import method from '../../miniprogram_npm/lin-ui/common/async-validator/validator/method'
+
 Component({
   /**
    * 组件的属性列表
@@ -8,9 +11,10 @@ Component({
   },
 
   observers: {
-
+    'data': function (data) {
+      console.log(data)
+    }
   },
-
   /**
    * 组件的初始数据
    */
@@ -36,22 +40,47 @@ Component({
       }else{
         animation.rotate(90).step();
       }
-
+      const selectedId = wx.getStorageSync("selectedId")
       this.setData({
         selected: !this.data.selected,
         boultAnimation:animation.export(),
+        selectedId
       })
-      console.log(this.data.selected)
+      console.log(this.data)
     },
 
     onGotoLearn (e) {
-      console.log(e)
-      const id = Math.floor(e.currentTarget.dataset.lessonId/100)
+      let id = Math.floor(e.currentTarget.dataset.lessonId/100)
       const url = e.currentTarget.dataset.url
       const title = e.currentTarget.dataset.title
+      let productId = e.currentTarget.dataset.productId
+      this.addWatched(productId)
+      this.setSelect (productId)
       wx.redirectTo({
         url: `/pages/learn/learn?id=${id}&url=${url}&title=${title}`
       })
+    },
+
+
+    // 向缓存中添加 已经观看过的视频的id
+    addWatched (productId) {
+      if (!wx.getStorageSync('watchedArr')) {
+        console.log("不存在")
+        let watchedArr = []
+        watchedArr.push(productId)
+        wx.setStorageSync("watchedArr", watchedArr)
+      }
+      let watchedArr = wx.getStorageSync('watchedArr')
+      // 数组去重
+      if (!watchedArr.includes(productId)) {
+        watchedArr.push(productId)
+      }
+      wx.setStorageSync("watchedArr", watchedArr)
+    },
+
+    // 修改 当前选中的课程 的状态
+    setSelect (productId) {
+      wx.setStorageSync("selectedId",productId)
     }
   },
 })

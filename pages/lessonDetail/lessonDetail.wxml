@@ -5,9 +5,9 @@
     <view class="content">
         <view class="left">
             <l-price value="{{lessonData.price}}"
-                     size="24"
+                     size="32"
                      color="#FF0000"></l-price>
-            <span>{{lessonData.store_name}}</span>
+            <span style="font-size: 32rpx;">{{lessonData.store_name}}</span>
         </view>
         <l-button open-type="share"
                   width="70"
@@ -24,17 +24,15 @@
     </view>
     <view class="btn">
         <view class="left">
-            <l-button open-type="contact"
-                      bg-color="#ffffff"
-                      width="80"
-                      height="50">
+            <button class="l-button" open-type="contact">
                 <view>
                     <l-icon size="40"
                             name="customer-service"
                             color="#010101"></l-icon>
                     <span>咨询客服</span>
                 </view>
-            </l-button>
+            </button>
+
             <view wx:if="{{!isLike}}"
                   class="like"
                   bind:tap="addLike"

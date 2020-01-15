@@ -5,3 +5,8 @@
 video {
     width: 100%;
 }
+
+.poster {
+    height: 420rpx;
+    width: 100%;
+}

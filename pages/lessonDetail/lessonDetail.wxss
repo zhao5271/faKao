@@ -2,9 +2,11 @@
 page {
     background-color: #eeeeee;
 }
+
 .container {
     width: 100%;
 }
+
 .container>image {
     width: 100%;
     height:387rpx;
@@ -19,16 +21,35 @@ page {
     background-color: #ffffff;
     margin-top: -10rpx;
 }
+
 .content .left {
     margin-left: 28rpx;
     display:flex;
     flex-direction:column;
 }
+.l-button {
+    font-size: 28rpx;
+    background-color: #fff;
+    border: none;
+    padding: 0;
+    margin: 0;
+    height: 80rpx !important;
+    width: 100rpx !important;
+    display: flex;
+    flex-direction: colum;
+    align-items: center;
+
+}
+.l-button:after {
+    border: none;
+}
+
 .content .left>span {
     font-size:24rpx;
     font-weight:400;
     line-height:32rpx;
 }
+
 .content .right {
     display:flex;
     flex-direction:column;
@@ -61,6 +82,7 @@ page {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
 }
 .btn .left span {
     color: #010101;

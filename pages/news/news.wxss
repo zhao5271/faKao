@@ -16,3 +16,4 @@ page {
 .segment-item-active{
     border-bottom: 4rpx solid #9a0000;
 }
+

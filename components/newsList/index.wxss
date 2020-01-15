@@ -27,12 +27,12 @@
     justify-content: space-between;
 }
 .title {
-    font-size:24rpx;
+    font-size:28rpx;
     font-weight:400;
     color:rgba(0,0,0,1);
 }
 .content {
-    font-size:18rpx;
+    font-size:24rpx;
     font-weight:400;
     color:rgba(132,132,132,1);
     line-height:26rpx;
@@ -44,3 +44,9 @@
     display: flex;
     justify-content: flex-end;
 }
+
+.tabpanel {
+    font-size: 32rpx !important;
+    font-weight: bold !important;
+}
+

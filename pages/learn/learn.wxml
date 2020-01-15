@@ -1,12 +1,15 @@
 <view class="container">
     <video id="myVideo"
+           wx:if="{{url}}"
            object-fit="cover"
            title="{{title}}"
            src="{{url}}"
            enable-play-gesture="{{true}}"
-           poster="{{poster}}"
+           poster="/imgs/poster.png"
            enable-play-gesture
-           controls></video>
+           controls>
+    </video>
+    <image class="poster" wx:else src="/imgs/poster.png"></image>
     <block wx:for="{{category}}" wx:key="index">
         <s-catalog data="{{item}}"></s-catalog>
     </block>

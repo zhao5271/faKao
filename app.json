@@ -17,7 +17,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#9a0000",
     "navigationBarTitleText": "法考直通车",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "borderStyle": "black",

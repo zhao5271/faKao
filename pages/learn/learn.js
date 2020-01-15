@@ -21,7 +21,7 @@ Page({
       title: options.title
     })
     await this.initClassData(options.id)
-
+    this.initWatched()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -41,5 +41,36 @@ Page({
     this.setData({
       category: res.data.categoryVoList
     })
+  },
+  // 获取缓存中存储的 已观看的视频 的id数组
+  initWatched () {
+    if (!wx.getStorageSync('watchedArr')) {
+      console.log("不存在")
+      return
+    }
+    let watchedArr = wx.getStorageSync('watchedArr')
+
+    let category = this.data.category
+    // 遍历渲染，已经观看的课程的状态
+    category.forEach(e => {
+      e.categoryVoList.forEach(item => {
+        if (watchedArr.includes(item.id)) {
+          item.watched = 1
+        }
+      })
+    })
+    this.initSelected()
+    this.setData({
+      category
+    })
+    console.log(this.data)
+  },
+
+  initSelected () {
+    const selectId = wx.getStorageSync('selected');
+    if (!selectId) {
+      return
+    }
+    this.data.category.selectId = selectId;
   }
 })
