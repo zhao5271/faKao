@@ -1,8 +1,8 @@
 <view class="container" id="{{lesson.id}}" bind:tap="onGotoLessonDetail">
-    <image class="img" src="{{lesson.image}}"></image>
+    <image class="img" src="{{lesson.img}}"></image>
     <view class="right">
         <view>
-            <text class="title">{{lesson.store_name}}</text>
+            <text class="title">{{lesson.title}}</text>
             <l-price value="{{lesson.price}}" color="#000000"></l-price>
         </view>
        <!-- <view class="addCart">

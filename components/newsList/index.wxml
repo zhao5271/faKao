@@ -1,10 +1,10 @@
 <view class="container" id="{{data.id}}" bind:tap="onGotoNewsDetail">
     <view class="box">
-        <image class="left" src="{{data.image_input[0]}}"></image>
+        <image class="left" src="{{data.img}}"></image>
         <view class="right">
             <text class="title">{{data.title}}</text>
-            <text class="content">{{data.synopsis}}</text>
-            <text class="date">{{data.add_time}}</text>
+            <text class="content">{{data.subTitle}}</text>
+            <text class="date">{{data.createTime}}</text>
         </view>
     </view>
 </view>

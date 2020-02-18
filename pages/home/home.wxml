@@ -11,8 +11,8 @@
             autoplay circular
             indicator-dots>
         <block wx:for="{{banners}}" wx:key="index">
-            <swiper-item id="{{item.newsId}}" bind:tap="onGotoNewsDetail">
-                <image class="swiper" src="{{item.pic}}"></image>
+            <swiper-item id="{{item.childId}}" bind:tap="onGotoNewsDetail">
+                <image class="swiper" mode="widthFix" src="{{item.img}}"></image>
             </swiper-item>
         </block>
     </swiper>
@@ -37,8 +37,8 @@
 <!--课程列表-->
     <view class="lesson">
         <view class="title">直播好课</view>
-        <block wx:for="{{classes}}" wx:key="index">
-            <s-lesson lesson="{{item}}"></s-lesson>
+        <block wx:for="{{lessones}}" wx:key="index">
+            <s-lesson lesson="{{item}}" wx:if="{{item.status == 1}}"></s-lesson>
         </block>
     </view>
 </view>

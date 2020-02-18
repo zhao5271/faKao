@@ -1,6 +1,5 @@
 // pages/newsDetail/newsDetail.js
-import { News } from '../../models/news'
-import * as WxParse from '../../wxParse/wxParse'
+import { NewsData } from '../../models/NewsData'
 
 Page({
 
@@ -15,22 +14,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    this.data.id = Number.parseInt(options.id)
-    await this.getDetail()
+    console.log(options)
+    await this.getDetail(options.id)
   },
 
 //  获取新闻详情页数据
-  async getDetail () {
-    const newsDetail = await News.getDetail(this.data.id)
-    const content = newsDetail.content
-    const time = newsDetail.add_time.split(" ")
-
+  async getDetail (id) {
+    const newsDetail = await NewsData.getDetail(id);
+    let time = newsDetail.data.createTime.split("T")[0];
     this.setData({
-      newsDetail,
-      content,
-      time: time[0]
+      newsDetail: newsDetail.data,
+      time
     })
-    WxParse.wxParse("content","html",content,this)
   }
-
 })

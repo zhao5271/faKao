@@ -1,6 +1,7 @@
 // pages/home/home.js
-import { HomeData } from '../../models/homeData'
 import { Store } from '../../utils/store'
+import {BannerData} from "../../models/BannerData";
+import {LessonData} from "../../models/LessonData";
 
 Page({
 
@@ -34,11 +35,11 @@ Page({
 
 //   初始化首页的所有数据
   async initIndexData () {
-    const banners = await HomeData.getBanner()
-    const classes = await HomeData.getClasses()
+    const banners = await BannerData.getIndexBanner()
+    const lessones = await LessonData.getList()
     this.setData({
-      banners,
-      classes
+      banners:banners.data,
+      lessones:lessones.data.list
     })
   }
 })

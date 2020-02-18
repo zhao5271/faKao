@@ -8,17 +8,17 @@ class Http{
       method,
       url: `${config.apiBaseUrl}${url}`
     })
-    return res.data.data
+    return res.data;
   }
 
-  static async request2 ({ url, data, method = 'GET' }) {
+/*  static async request2 ({ url, data, method = 'GET' }) {
     const res = await promisic(wx.request)({
       data,
       method,
       url: `${config.apiBaseUrl}${url}`
     })
     return res.data
-  }
+  }*/
 }
 
 export {

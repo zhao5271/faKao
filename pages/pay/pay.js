@@ -1,6 +1,6 @@
 // pages/pay/pay.js
 import { Pay } from '../../models/pay'
-import { Lesson } from '../../models/lesson'
+import { LessonData } from '../../models/LessonData'
 import * as WxParse from '../../wxParse/wxParse'
 
 Page({
@@ -24,7 +24,7 @@ Page({
   },
   //  初始化商品详情数据
   async getDetail () {
-    const lessonData = await Lesson.getLesson(this.data.productId)
+    const lessonData = await LessonData.getLesson(this.data.productId)
     this.setData({
       image: lessonData.storeInfo.image,
       title: lessonData.storeInfo.store_name,

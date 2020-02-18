@@ -17,3 +17,96 @@ page {
     border-bottom: 4rpx solid #9a0000;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.item {
+    margin-top: 20rpx;
+    width:720rpx;
+    height:215rpx;
+    background:rgba(255,255,255,1);
+    border-radius:10rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.item>image {
+    width:265rpx;
+    height:191rpx;
+    border-radius:10rpx;
+    margin-left: 33rpx;
+}
+.item .right {
+    width: 375rpx;
+    height: 200rpx;
+    font-size:20rpx;
+    font-weight:400;
+    color:rgba(147,149,151,1);
+    line-height:24rpx;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+}
+.right .title {
+    font-size:30rpx;
+    font-weight:400;
+    color:rgba(12,12,12,1);
+    margin-bottom: -30rpx;
+}
+.right .righttwo {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal !important;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.right .btns {
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 20rpx;
+}
+.pay {
+    width:92rpx;
+    height:41rpx;
+    border:1px solid #959595;
+    border-radius:11rpx;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 23rpx;
+    color:#858585;
+    box-sizing:border-box;
+}
+.btn {
+    min-width:102rpx !important;
+    height:41rpx !important;
+    font-size: 20rpx !important;
+    margin-right: 14rpx;
+    color: #FFFEFE;
+}
+.seeLesson {
+    background:rgba(255,105,0,1) !important;
+}
+
+.order {
+    background-color: #FE5656 !important;
+}
+
+.red {
+    color: #FE5656;
+}
+
+.segment {
+    background-color: #fff;
+}
+
+.segment-item-active{
+    border-bottom: 4rpx solid #9a0000;
+}

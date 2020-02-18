@@ -1,6 +1,5 @@
 // pages/lessonDetail/lessonDetail.js
-import { Lesson } from '../../models/lesson'
-import * as WxParse from '../../wxParse/wxParse'
+import { LessonData } from '../../models/LessonData'
 import { Like } from '../../models/like'
 import { Cart } from '../../models/Cart'
 import { Order } from '../../models/order'
@@ -32,13 +31,11 @@ Page({
 
 //  初始化商品详情数据
   async getDetail () {
-    const lessonData = await Lesson.getLesson(this.data.id)
-    const description = lessonData.storeInfo.description
+    const lessonData = await LessonData.getDetail(this.data.id)
     this.setData({
-      lessonData: lessonData.storeInfo,
-      description
+      lessonData:lessonData.data
     })
-    WxParse.wxParse('content', 'html', description, this)
+    // WxParse.wxParse('content', 'html', description, this)
   },
 
 //  添加到购物车

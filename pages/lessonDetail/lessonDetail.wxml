@@ -1,13 +1,13 @@
 <import src="../../wxParse/wxParse.wxml"></import>
 
 <view class="container">
-    <image src="{{lessonData.image}}"></image>
+    <image src="{{lessonData.img}}"></image>
     <view class="content">
         <view class="left">
             <l-price value="{{lessonData.price}}"
                      size="32"
                      color="#FF0000"></l-price>
-            <span style="font-size: 32rpx;">{{lessonData.store_name}}</span>
+            <span style="font-size: 32rpx;">{{lessonData.title}}</span>
         </view>
         <l-button open-type="share"
                   width="70"
@@ -20,7 +20,8 @@
     </view>
 <!--课程描述-->
     <view style="margin-bottom: 100rpx;">
-      <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+        <image src="{{lessonData.subImg}}" mode="widthFix" style="width: 100%;"></image>
+<!--      <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>-->
     </view>
     <view class="btn">
         <view class="left">

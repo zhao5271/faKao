@@ -40,7 +40,6 @@ Page({
               that.data.openid = res.data.openid
               //将获取到的openid存储到缓存中
               wx.setStorageSync('openid', res.data.openid)
-
             }
           })
         } else {

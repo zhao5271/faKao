@@ -6,34 +6,32 @@
             indicator-dots>
         <block wx:for="{{banners}}" wx:key="index">
             <swiper-item>
-                <image class="swiper" src="{{item}}"></image>
+                <image class="swiper" mode="widthFix" src="{{item.img}}"></image>
             </swiper-item>
         </block>
     </swiper>
-    <!--选项卡-->
-    <l-tabs bind:linchange="changeTabs"
-            l-header-class="tabs"
-            active-color="#9a0000"
-            l-active-class="segment-item-active"
-            inactive-color="#494949"
-            animated-for-line="true"
-            equal-width="{{false}}"
-            swipeable="{{true}}">
-        <l-tabpanel tab="热门"
-                    key="one" slot="one">
-            <view class="content">
+<!--选项卡-->
+    <l-segment placement="top"
+               active-key="{{newsCategory[0].id}}"
+               active-color="#9a0000"
+               inactive-color="#494949"
+               even="{{true}}"
+               l-active-class="segment-item-active"
+               l-class="segment"
+               bind:linchange="onSegChange"
+               item-height="90">
+        <block wx:for="{{newsCategory}}" wx:key="key">
+            <l-segment-item key="{{item.id}}" tab="{{item.title}}"></l-segment-item>
+        </block>
+    </l-segment>
+
+    <view class="contentBox">
+        <view class="content">
             <block wx:for="{{newsList}}" wx:key="index">
                 <s-news-list data="{{item}}"
                              bind:gotoDetail="onGotoDetail">
                 </s-news-list>
             </block>
-            </view>
-        </l-tabpanel>
-        <l-tabpanel tab="文章"
-                    key="two" slot="two">
-            <block wx:for="{{newsList}}" wx:key="index">
-                <s-news-list data="{{item}}"></s-news-list>
-            </block>
-        </l-tabpanel>
-    </l-tabs>
+        </view>
+    </view>
 </view>
