@@ -1,5 +1,5 @@
-// pages/like/like.js
-import { Like } from '../../models/like'
+// pages/like/LikeData.js
+import { LikeData } from '../../models/LikeData'
 
 Page({
 
@@ -33,7 +33,7 @@ Page({
 //  获取收藏课程列表
   async initLikeList () {
     const uid = wx.getStorageSync('uid');
-    const res = await Like.getList(uid)
+    const res = await LikeData.getList(uid)
     this.setData({
       list: res.data
     })
@@ -48,7 +48,7 @@ Page({
       content: "确定从收藏中删除该课程吗",
       success: (res) => {
         if (res.confirm) {
-          const resData = Like.delItem(likeId)
+          const resData = LikeData.delItem(likeId)
           wx.redirectTo({
             url: '/pages/like/like'
           })

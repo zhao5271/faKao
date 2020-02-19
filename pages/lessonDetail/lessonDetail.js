@@ -1,6 +1,6 @@
 // pages/lessonDetail/lessonDetail.js
 import { LessonData } from '../../models/LessonData'
-import { Like } from '../../models/like'
+import { LikeData } from '../../models/LikeData'
 import { Cart } from '../../models/Cart'
 import { Order } from '../../models/order'
 
@@ -35,11 +35,10 @@ Page({
     this.setData({
       lessonData:lessonData.data
     })
-    // WxParse.wxParse('content', 'html', description, this)
   },
 
 //  添加到购物车
-  async addCart () {
+/*  async addCart () {
     if (!this.data.uid) {
       this.toLogin()
       return
@@ -57,7 +56,7 @@ Page({
         }
       }
     })
-  },
+  },*/
 //  初始化用户uid
   initUid () {
     this.data.uid = wx.getStorageSync('uid')
@@ -79,10 +78,11 @@ Page({
   },
 //  初始化课程的收藏状态
   async initIsLike () {
-    const data = await Like.getIsLike(this.data.lessonData.id, this.data.uid)
-    if (data) {
+    const res = await LikeData.getIsLike(this.data.uid,this.data.lessonData.id)
+    console.log(res)
+    if (res.status != -1) {
       this.setData({ isLike: true })
-      this.data.likeId = data.id
+      this.data.likeId = res.data.id
     } else {
       this.setData({ isLike: false })
     }
@@ -94,11 +94,19 @@ Page({
       this.toLogin()
       return
     }
-    const data = await Like.addLike(this.data.uid, this.data.lessonData)
+    let likeData = {};
+    likeData.userId = this.data.uid;
+    likeData.productId = this.data.lessonData.id;
+    likeData.productName = this.data.lessonData.title;
+    likeData.productImg = this.data.lessonData.img;
+    likeData.productPrice = this.data.lessonData.price;
+
+    const data = await LikeData.addLike(likeData)
+    console.log(data);
     wx.lin.showDialog({
       type: 'confirm',
       title: '提示',
-      content: `${data.msg}是否前往我的收藏查看`,
+      content: `添加收藏${data.msg}，是否查看`,
       success: (res) => {
         if (res.confirm) {
           wx.navigateTo({
@@ -120,7 +128,7 @@ Page({
       content: '是否取消收藏该课程',
       success: (res) => {
         if (res.confirm) {
-          const data = Like.delItem(this.data.likeId)
+          const data = LikeData.delItem(this.data.likeId)
           that.setData({ isLike: false })
         }
       },

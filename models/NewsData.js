@@ -20,7 +20,6 @@ class NewsData {
       url: `/newsCategory/list`
     })
   }
-
 }
 
 export {

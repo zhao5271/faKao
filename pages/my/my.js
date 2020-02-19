@@ -1,7 +1,8 @@
 // pages/my/my.js
-import { User } from '../../models/user'
+import { UserData } from '../../models/UserData'
 import { config } from '../../config/config'
-import { Like } from '../../models/like'
+import { LikeData } from '../../models/LikeData'
+import {promisic} from "../../miniprogram_npm/lin-ui/utils/util";
 
 Page({
 
@@ -11,6 +12,7 @@ Page({
   data: {
     userInfo: Object,
     openid: String,
+    sessiongKey: String,
     isLogin: false
   },
 
@@ -22,43 +24,27 @@ Page({
   },
 
 // 获取openid
-  async initOpenid () {
-    var that = this
-    await wx.login({
-      success (res) {
-        if (res.code) {
-          wx.setStorageSync("code", res.code)
-          wx.request({
-            url: `https://api.weixin.qq.com/sns/jscode2session`,
-            data: {
-              appid: config.appId,
-              secret: config.AppSecret,
-              js_code: res.code,
-              grant_type: 'authorization_code'
-            },
-            success (res) {
-              that.data.openid = res.data.openid
-              //将获取到的openid存储到缓存中
-              wx.setStorageSync('openid', res.data.openid)
-            }
-          })
-        } else {
-          console.log('登录失败！' + res.errMsg)
-        }
-      }
-    })
+  async initOpenid() {
+    const res = await promisic(wx.login)();
+    const data = await UserData.getOpenid(res.code);
+    const obj = JSON.parse(data.data);
+    this.data.openid = obj.openid;
+    this.data.sessionKey = obj.session_key;
   },
-//    发送 用户数据
-  async initUserData () {
-    const data = await User.postInfo({
-      headimgurl: this.data.userInfo.avatarUrl,
-      sex: this.data.userInfo.gender,
-      nickname: this.data.userInfo.nickName,
-      openid: this.data.openid
-    })
-    wx.setStorageSync('uid', data.uid)
+
+//  向Java后台发送登陆请求
+  async login() {
+    let data = {};
+    data.sessionKey = this.data.sessionKey;
+    data.openid = this.data.openid;
+    data.nickname = this.data.userInfo.nickName;
+    data.avatar = this.data.userInfo.avatarUrl;
+
+    const res = await UserData.login(data);
+    wx.setStorageSync('uid', res.data.id)
     wx.setStorageSync('userInfo', this.data.userInfo)
   },
+
 // 用户登录
   onGotUserInfo (event) {
     const userInfo = wx.getStorageSync("userInfo")
@@ -83,13 +69,22 @@ Page({
               that.setData({
                 userInfo: res.userInfo
               })
-              await that.initUserData()
-              wx.hideLoading()
+              await that.login();
+              setTimeout(() => {
+                wx.lin.showToast({
+                  title: '登陆失败！',
+                  icon: 'error',
+                  mark: true
+                })
+                wx.hideLoading()
+              },8000);
+              wx.hideLoading();
             }
           })
         }
       },
       fail (error) {
+        wx.hideLoading()
         console.log('调用失败')
       }
     })

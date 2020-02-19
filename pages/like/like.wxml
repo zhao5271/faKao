@@ -6,17 +6,17 @@
     <block wx:for="{{list}}" wx:key="index">
         <view class="item"
               data-like-id="{{item.id}}"
-              data-lesson-id="{{item.product_id}}"
+              data-lesson-id="{{item.productId}}"
               bind:longpress="onLongpress"
               bind:tap="onGotoDetail">
-            <image src="/imgs/lesson.png"></image>
+            <image src="{{item.productImg}}"></image>
             <view class="right">
                 <div class="middle">
-                    <text class="title">{{item.title}}</text>
+                    <text class="title">{{item.productName}}</text>
                     <!--<text>
                         课程是指学校学生所应学习的学科总和及其进程与安排。课程……
                     </text>-->
-                    <l-price value="{{item.price}}"
+                    <l-price value="{{item.productPrice}}"
                              size="34"
                              color="#FE5656"></l-price>
                 </div>
