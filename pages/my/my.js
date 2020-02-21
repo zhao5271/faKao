@@ -70,20 +70,19 @@ Page({
                 userInfo: res.userInfo
               })
               await that.login();
-              setTimeout(() => {
-                wx.lin.showToast({
-                  title: '登陆失败！',
-                  icon: 'error',
-                  mark: true
-                })
-                wx.hideLoading()
-              },8000);
               wx.hideLoading();
             }
           })
         }
       },
       fail (error) {
+        setTimeout(() => {
+          wx.lin.showToast({
+            title: '登陆失败！',
+            icon: 'error',
+            mark: true
+          })
+        },8000);
         wx.hideLoading()
         console.log('调用失败')
       }

@@ -19,34 +19,32 @@
         </view>
         <view class="content">
             <block wx:for="{{Classes}}" wx:key="index">
-                <view wx:if="{{item.status==1}}"
-                      data-lesson-id="{{item.product_id}}"
+                <view wx:if="{{item.status==2}}"
+                      data-lesson-id="{{item.productId}}"
                       class="item" bind:tap="onGotoLearn">
-                    <image src="{{item.image}}"></image>
+                    <image src="{{item.productImg}}"></image>
                     <view class="right">
-                        <text class="title">{{item.title}}</text>
-                        <text>{{item.description}}</text>
+                        <text class="title">{{item.productName}}</text>
                         <view class="btns">
                             <view class="pay">已付款</view>
                             <l-button l-class="btn seeLesson"
-                                      data-order-id="{{item.product_id}}"
+                                      data-order-id="{{item.id}}"
                                       catch:tap="onGotoOrder">订单详情
                             </l-button>
                         </view>
                     </view>
                 </view>
-                <view wx:if="{{item.status==0}}"
+                <view wx:if="{{item.status < 2}}"
                       class="item"
-                      data-lesson-id="{{item.product_id}}"
+                      data-lesson-id="{{item.productId}}"
                       bind:tap="onGotoDetail">
-                    <image src="{{item.image}}"></image>
+                    <image src="{{item.productImg}}"></image>
                     <view class="right">
-                        <text class="title">{{item.title}}</text>
-                        <text>{{item.description}}</text>
+                        <text class="title">{{item.productName}}</text>
                         <view class="btns">
                             <view class="pay red">待付款</view>
                             <l-button l-class="btn order"
-                                      data-product-id="{{item.product_id}}"
+                                      data-product-id="{{item.productId}}"
                                       catch:tap="onPayOrder">课程支付
                             </l-button>
                         </view>

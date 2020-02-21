@@ -18,20 +18,16 @@ Page({
   },
 
   // 初始化订单详情数据
-  async initDetail (pid) {
-    const res = await Order.getDetail(pid)
-    const time = res.data.payTime.split("T");
+  async initDetail (id) {
+    const res = await Order.getDetail(id)
+    console.log(res);
+    const time = res.data.updateTime.split("T");
     const date = time[0];
     const dateTime = time[1].split(".")[0]
     this.setData({
-      orderNo: res.data.orderNo,
-      image: res.data.image,
-      payPrice: res.data.payPrice,
-      title: res.data.title,
+      data: res.data,
       date,
       dateTime
     })
-    console.log(date)
-    console.log(dateTime)
   }
 })

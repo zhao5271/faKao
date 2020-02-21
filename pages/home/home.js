@@ -26,11 +26,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
-    await this.initIndexData()
     Store.clear("uid")
-    Store.clear("openid")
-    Store.clear("code")
     Store.clear("userInfo")
+    await this.initIndexData()
   },
 
 //   初始化首页的所有数据

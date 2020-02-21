@@ -3,27 +3,25 @@ import { promisic } from '../miniprogram_npm/lin-ui/utils/util'
 
 class Order {
   static async getList (uid) {
-    return await Http.request2({
-      url: `/api/admin/order/list?uid=${uid}`,
-      method: 'POST'
+    return await Http.request({
+      url: `/order/list/${uid}`,
     })
   }
 
-  static async getStatus (uid, pid) {
-    const res = await promisic(wx.request)({
-      url: `http://smoothwater.natapp1.cc/order/status?uid=${uid}&pid=${pid}`,
-      method: 'GET',
+  static async getStatus (userId, productId) {
+    return await Http.request({
+      url: `/order/status`,
+      data:{
+         userId,
+        productId,
+      }
     })
-    return res.data
   }
 
-  static async getDetail (pid) {
-    const uid = wx.getStorageSync('uid');
-    const res = await promisic(wx.request)({
-      url: `http://smoothwater.natapp1.cc/order/detail?uid=${uid}&pid=${pid}`,
-      method: 'GET',
+  static async getDetail (orderNo) {
+    return await Http.request({
+      url: `/order/detail/${orderNo}`
     })
-    return res.data
   }
 }
 

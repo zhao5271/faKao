@@ -15,25 +15,30 @@
              placeholder="请输入姓名"></l-input>
 <!--    建议使用出生日期-->
     <l-input label="年  龄"
-             name="year"
-             value="{{personMsg.year}}"
+             name="age"
+             value="{{personMsg.age}}"
              required="{{true}}"
              label-layout="right"
              placeholder="请输入年龄"></l-input>
 <!--    需要使用单选-->
     <l-input label="性  别"
              name="sex"
-             value="{{personMsg.sex}}"
+             value="{{personMsg.sex == 0?'女':'男'}}"
              required="{{true}}"
              label-layout="right"
-             placeholder="请输入您的性别"></l-input>
+             placeholder="请输入您的性别">
+    </l-input>
+
+
 <!--电话和邮箱需要验证格式-->
     <l-input label="电  话"
-             name="tel"
-             value="{{personMsg.tel}}"
+             name="phone"
+             value="{{personMsg.phone}}"
              required="{{true}}"
              label-layout="right"
-             placeholder="请输入您的手机号"></l-input>
+             placeholder="请输入您的手机号">
+    </l-input>
+
     <l-input label="邮  箱"
              name="email"
              value="{{personMsg.email}}"
@@ -67,7 +72,6 @@
              label-layout="right"
              placeholder="请输入您的兴趣爱好"></l-input>
     <button formType="submit"
-            bind:tap="addPersonMsg"
             class="btn"> 提交信息 </button>
 </form>
 </view>

@@ -7,8 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    isWrited:false, // 判断是否写入个人信息
-    personMsg: Object, // 个人信息
+    personMsg: {}, // 个人信息
+    formMsg:{}, // 存放页面中的表单信息
+    isAdd: false, // 判断是插入个人信息还是修改个人信息
   },
 
   /**
@@ -25,36 +26,67 @@ Page({
     }
     await this.getPersonMsg()
   },
-  // 获取form 中的数据
+  // 提交用户信息
   getFormMsg(event){
+    // 获取表格中的用户信息
     const formMsg = event.detail.value;
-    this.data.formMsg = formMsg
+    formMsg.sex == "男"?formMsg.sex=1:formMsg.sex=0;
+    formMsg.userId = this.data.uid;
+    console.log(formMsg);
+    // 提交信息的时候，判断是新增用户信息，还是修改用户信息
+    if (this.data.isAdd) {
+      this.addPersonMsg(formMsg);
+    } else {
+      this.updatePersonMsg(formMsg);
+    }
   },
 
   // 从数据库中 ， 读取用户信息
   async getPersonMsg () {
-    const res = await PersonMsg.getMsg(Number.parseInt(this.data.uid))
+    const res = await PersonMsg.getMsg(Number.parseInt(this.data.uid));
+    if (res.status == -1) {
+      this.data.isAdd = true;
+      return;
+    }
     this.setData({
       personMsg: res.data
-    })
+    });
   },
 
   // 向数据库中插入 用户信息
-  async addPersonMsg () {
-    const data = await PersonMsg.addMsg(this.data.uid, this.data.personMsg)
+  async addPersonMsg (formMsg) {
+    const data = await PersonMsg.addMsg(formMsg)
     console.log(data)
-    if (data.status == 200) {
+    if (data.status == 0) {
       wx.lin.showToast({
-        title: '信息提交成功~',
+        title: '信息新增成功~',
         icon: 'success',
       })
     } else {
       wx.lin.showToast({
-        title: '信息提交失败，请联系管理员',
+        title: '信息新增失败，请联系管理员',
         icon: 'error',
       })
     }
   },
+
+  // 修改用户信息
+  async updatePersonMsg(formMsg) {
+    formMsg.id = this.data.personMsg.id;
+    const data = await PersonMsg.updateMsg(formMsg);
+    if (data.status == 0) {
+      wx.lin.showToast({
+        title: '信息修改成功~',
+        icon: 'success',
+      })
+    } else {
+      wx.lin.showToast({
+        title: '信息修改失败，请联系管理员',
+        icon: 'error',
+      })
+    }
+  },
+
 
   // 判断用户是否登录
   isLogin () {

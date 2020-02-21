@@ -1,18 +1,18 @@
 <view class="container">
     <view class="content">
         <view class="header">
-            订单编号：{{orderNo}}
+            订单编号：{{data.orderNo}}
         </view>
         <view class="item">
-            <image src="{{image}}"></image>
+            <image src="{{data.productImg}}"></image>
             <view class="right">
                 <view>
-                    <view class="title">{{title}}</view>
+                    <view class="title">{{data.productName}}</view>
                     <view>时间：{{date}} {{dateTime}}</view>
                     <view>支付方式：微信支付</view>
                 </view>
                 <view class="btns">
-                    <l-price value="{{payPrice}}" color="#FE5656"></l-price>
+                    <l-price value="{{data.productPrice}}" color="#FE5656"></l-price>
                     <view class="pay">支付完成</view>
                 </view>
             </view>

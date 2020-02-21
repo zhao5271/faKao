@@ -67,15 +67,13 @@ Page({
 //  加载所有课程
   async initAllClass () {
     const uid = wx.getStorageSync('uid')
-    console.log(uid);
-    const res = await Order.getList(uid)
-    console.log(res);
+    const res = await Order.getList(uid);
     let payedClass = []
     let noPayClass = []
     res.data.forEach(item => {
-      if(item.status == 1){
+      if(item.status == 2){
         payedClass.push(item)
-      }else if(item.status == 0){
+      }else if(item.status < 2){
         noPayClass.push(item)
       }
     })
@@ -85,7 +83,6 @@ Page({
       allClass: res.data,
       Classes: res.data
     })
-    console.log(res.data)
   },
 
 //  点击segment选项卡，加载数据

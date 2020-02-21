@@ -69,7 +69,9 @@
     "l-dialog": "/miniprogram_npm/lin-ui/dialog/index",
     "l-toast": "/miniprogram_npm/lin-ui/toast/index",
     "l-segment": "/miniprogram_npm/lin-ui/segment/index",
-    "l-segment-item": "/miniprogram_npm/lin-ui/segment-item/index"
+    "l-segment-item": "/miniprogram_npm/lin-ui/segment-item/index",
+    "l-radio-group": "/miniprogram_npm/lin-ui/radio-group/index",
+    "l-radio": "/miniprogram_npm/lin-ui/radio/index"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
