@@ -10,11 +10,6 @@ Component({
     data: Object
   },
 
-  observers: {
-    'data': function (data) {
-      console.log(data)
-    }
-  },
   /**
    * 组件的初始数据
    */
@@ -33,7 +28,6 @@ Component({
       let animation = wx.createAnimation({
         timingFunction:"ease"
       })
-      this.animation = animation
 
       if (this.data.selected) {
         animation.rotate(0).step();
@@ -46,7 +40,6 @@ Component({
         boultAnimation:animation.export(),
         selectedId
       })
-      console.log(this.data)
     },
 
     onGotoLearn (e) {

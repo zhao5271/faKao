@@ -1,5 +1,5 @@
 const config = {
-  apiBaseUrl: 'http://fu6pq9.natappfree.cc',
+  apiBaseUrl: 'http://mjuryd.natappfree.cc',
   appId:"wxc698e508ef75ee6b",
   AppSecret: "839ae2124a9d6a82cc226c27dc677bc9"
   // appId:"wx9f6e9d05328e129c",

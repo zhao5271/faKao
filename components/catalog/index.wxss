@@ -28,9 +28,10 @@
 .list{
     width: 100%;
     background: #f8f8f8;
-
+    height: 400rpx;
+    transition: height 0.6s;
 }
-.list>view {
+.list .view-body {
     height: 80rpx;
     line-height: 80rpx;
     font-size:28rpx;
@@ -41,7 +42,6 @@
     width: 600rpx;
     display: flex;
     justify-content: space-between;
-
 }
 
 .watched {
@@ -53,4 +53,8 @@
 }
 .selected {
     color: #9a0000 !important;
+}
+
+.height0{
+    height: 0!important;
 }

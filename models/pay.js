@@ -1,5 +1,6 @@
 import { promisic } from '../miniprogram_npm/lin-ui/utils/util'
 import { config } from '../config/config'
+import {Http} from "../utils/http";
 
 function successPay (data) {
   wx.requestPayment({
@@ -8,12 +9,10 @@ function successPay (data) {
     package: data.package,
     signType: data.signType,
     paySign: data.paySign,
-    success: function (res) {
-      console.log(res)
+    success: async function (res) {
       console.log('支付成功')
     },
     fail: function (res) {
-      console.log(res)
       console.log('支付失败')
     },
     complete: function (res) {
@@ -23,48 +22,37 @@ function successPay (data) {
 }
 
 class Pay {
-  static create (data) {
-    const openid = wx.getStorageSync('openid')
+  static async create(data) {
+    console.log(data)
     const uid = wx.getStorageSync('uid')
     const amount = 0.01 // 产品的价格
-    const productId = data.productId
-    const title = data.title
-    const image = data.image
-    const description = data.description
+    const productId = data.data.id
+    const image = data.data.img
+    const productName = data.data.title
 
-    wx.request({
-      url: 'http://smoothwater.natapp1.cc/pay/mini_pay',
+    const res = await Http.request({
+      url: "/pay/mini_pay",
       data: {
-        openid,
         uid,
         productId,
-        title,
         image,
-        description,
-        amount
-      },
-      method: 'GET',
-      success (res) {
-        successPay(res.data)
+        amount,
+        productName
       }
     })
+    successPay(res)
   }
 
-  static overPay (productId) {
-    const openid = wx.getStorageSync('openid')
+  static async overPay(productId) {
     const uid = wx.getStorageSync('uid')
-    wx.request({
-      url: 'http://smoothwater.natapp1.cc/pay/over_pay',
+    const res = await Http.request({
+      url: `/pay/over_pay`,
       data: {
-        openid,
         uid,
         productId,
       },
-      method: 'GET',
-      success (res) {
-        successPay(res.data)
-      }
     })
+    successPay(res)
   }
 }
 

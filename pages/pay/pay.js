@@ -24,14 +24,10 @@ Page({
   },
   //  初始化商品详情数据
   async getDetail () {
-    const lessonData = await LessonData.getLesson(this.data.productId)
+    const lessonData = await LessonData.getDetail(this.data.productId);
     this.setData({
-      image: lessonData.storeInfo.image,
-      title: lessonData.storeInfo.store_name,
-      description: "测试",
-      price: lessonData.storeInfo.price
+      data:lessonData.data
     })
-    console.log(this.data)
   },
 
 

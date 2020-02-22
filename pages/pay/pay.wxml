@@ -1,14 +1,14 @@
 <view class="container">
     <view class="goods">
         <div>
-            <image src="{{image}}"></image>
+            <image src="{{data.img}}"></image>
             <view class="right">
                 <div class="title">
                     <text>法考直通车</text>
-                    <text>{{title}},限时优惠，今天截至。</text>
+                    <text>{{data.title}},限时优惠，今天截至。</text>
                 </div>
                 <div class="price">
-                    <l-price value="{{price}}" color="#E64239" size="36"></l-price>
+                    <l-price value="{{data.price}}" color="#E64239" size="36"></l-price>
                     <text>x1</text>
                 </div>
             </view>
@@ -22,7 +22,7 @@
     <view class="detail">
         <view class="item">
             <text>商品价格</text>
-            <l-price value="{{price}}" color="#101010" size="28"></l-price>
+            <l-price value="{{data.price}}" color="#101010" size="28"></l-price>
         </view>
         <view class="item">
             <text>限时优惠</text>
@@ -35,13 +35,13 @@
         <view class="bottom">
             <text>共  1  件商品</text>
             <text>共计：</text>
-            <l-price value="{{price}}" color="#FC3F27" size="28"></l-price>
+            <l-price value="{{data.price}}" color="#FC3F27" size="28"></l-price>
         </view>
     </view>
 
     <view class="order">
         <text>共计金额：</text>
-        <text class="priceNum">{{price}}</text>
+        <text class="priceNum">{{data.price}}</text>
         <l-button shape="semicircle"
                   width="166"
                   height="57"
