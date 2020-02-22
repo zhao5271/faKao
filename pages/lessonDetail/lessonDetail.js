@@ -157,11 +157,11 @@ Page({
   // 获取课程的支付状态
   async initStatus () {
     const res = await Order.getStatus(this.data.uid, this.data.id)
-    console.log(res)
-    this.setData({
-      status: res.data
-    })
-    console.log(this.data.status);
+    if (res.status == -1) {
+      this.setData({status: 0});
+    } else {
+      this.setData({status: res.data});
+    }
   },
   // 进入课程观看页面
   onGotoLearn () {

@@ -1,12 +1,12 @@
 import { promisic } from '../miniprogram_npm/lin-ui/utils/util'
+import {Http} from "../utils/http";
 
 class Category {
 
   static async getClassByPid (pid) {
-    const res = await promisic(wx.request)({
-      url: `http://smoothwater.natapp1.cc/categories/${pid}`
+    return await Http.request({
+      url:`/lesson/list/${pid}`
     })
-    return res.data
   }
 
 }

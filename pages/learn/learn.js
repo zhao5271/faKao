@@ -39,7 +39,7 @@ Page({
   async initClassData () {
     const res = await Category.getClassByPid(this.data.lessonId)
     this.setData({
-      category: res.data.categoryVoList
+      category: res.data.lessonVoList
     })
   },
   // 获取缓存中存储的 已观看的视频 的id数组
@@ -53,7 +53,7 @@ Page({
     let category = this.data.category
     // 遍历渲染，已经观看的课程的状态
     category.forEach(e => {
-      e.categoryVoList.forEach(item => {
+      e.lessonVoList.forEach(item => {
         if (watchedArr.includes(item.id)) {
           item.watched = 1
         }

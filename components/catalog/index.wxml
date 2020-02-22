@@ -7,7 +7,7 @@
                    alt=""></image>
         </view>
         <view class="list" wx:if="{{selected}}">
-            <block wx:for="{{data.categoryVoList}}" wx:key="index">
+            <block wx:for="{{data.lessonVoList}}" wx:key="index">
                 <view class="{{item.watched==1 ? 'watched' : ''}} {{selectedId == item.id ? 'selected':''}}"
                       data-url="{{item.url}}"
                       data-lesson-id="{{item.parentId}}"
