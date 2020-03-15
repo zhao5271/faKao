@@ -5,7 +5,7 @@
             autoplay circular
             indicator-dots>
         <block wx:for="{{banners}}" wx:key="index">
-            <swiper-item>
+            <swiper-item id="{{item.childId}}" bind:tap="onGotoNewsDetail">
                 <image class="swiper" mode="widthFix" src="{{item.img}}"></image>
             </swiper-item>
         </block>

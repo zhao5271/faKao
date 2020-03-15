@@ -1,7 +1,7 @@
 <view class="container">
-<l-avatar src="{{userInfo ? userInfo.avatarUrl : '/imgs/avatar.png'}}"
+<l-avatar src="{{userInfo ? userInfo.avatarUrl : '/imgs/avatar.jpg'}}"
           shape="circle"
-          size="168" text="{{userInfo ? userInfo.nickName : '用户名称'}}"
+          size="138" text="{{userInfo ? userInfo.nickName : '用户名称'}}"
           l-class="avatarImg"
           l-text-class="avatarTxt"
           placement="bottom"></l-avatar>

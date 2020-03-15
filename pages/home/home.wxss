@@ -65,9 +65,6 @@
     color:rgba(255,255,255,1);
     text-align: center;
 }
-.news-item:nth-child(2)>text , .news-item:nth-child(3)>text {
-    width:80rpx !important;
-}
 
 .ad {
     width:722rpx;

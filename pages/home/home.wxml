@@ -11,7 +11,7 @@
             autoplay circular
             indicator-dots>
         <block wx:for="{{banners}}" wx:key="index">
-            <swiper-item id="{{item.childId}}" bind:tap="onGotoNewsDetail">
+            <swiper-item id="{{item.childId}}" bind:tap="toLesson">
                 <image class="swiper" mode="widthFix" src="{{item.img}}"></image>
             </swiper-item>
         </block>
@@ -19,6 +19,13 @@
     <!--新闻-->
     <view class="news">
         <view class="news-content">
+            <block wx:for="{{recommendNews}}" wx:key="index">
+                <view class="news-item"
+                      id="{{item.id}}" bind:tap="onGotoNewsDetail">
+                    <text>{{item.title}}</text>
+                </view>
+            </block>
+           <!--
             <view class="news-item" id="1" bind:tap="onGotoNewsDetail">
                 <text>法考的重要性</text>
             </view>
@@ -30,7 +37,7 @@
             </view>
             <view class="news-item" id="4" bind:tap="onGotoNewsDetail">
                 <text>法考相关新闻</text>
-            </view>
+            </view>-->
         </view>
     </view>
     <image class="ad" src="/imgs/ad.png"></image>

@@ -35,7 +35,7 @@ Page({
     const uid = wx.getStorageSync('uid');
     const res = await LikeData.getList(uid)
     this.setData({
-      list: res.data
+      list: res
     })
   },
   //  长按删除收藏的课程

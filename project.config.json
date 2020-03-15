@@ -25,7 +25,7 @@
 		"enhance": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.0",
+	"libVersion": "2.10.2",
 	"appid": "wxc698e508ef75ee6b",
 	"projectname": "faKao",
 	"debugOptions": {

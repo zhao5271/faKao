@@ -20,6 +20,15 @@ class NewsData {
       url: `/newsCategory/list`
     })
   }
+
+  // 获取首页推荐新闻
+  static async getRecommendNews(){
+    const res = await Http.request({
+      url: `/news/list?pageSize=100`
+    })
+    let recommendNews = res.data.list.filter(item => item.visit == 1);
+    return recommendNews;
+  }
 }
 
 export {

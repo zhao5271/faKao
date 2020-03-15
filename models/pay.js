@@ -11,6 +11,7 @@ function successPay (data) {
     paySign: data.paySign,
     success: async function (res) {
       console.log('支付成功')
+      Pay.notify();
     },
     fail: function (res) {
       console.log('支付失败')
@@ -25,7 +26,7 @@ class Pay {
   static async create(data) {
     console.log(data)
     const uid = wx.getStorageSync('uid')
-    const amount = 0.01 // 产品的价格
+    const amount = data.data.price // 产品的价格
     const productId = data.data.id
     const image = data.data.img
     const productName = data.data.title

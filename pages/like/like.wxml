@@ -1,9 +1,9 @@
 <view class="container">
-    <view wx:if="{{list.length==0}}" class="noLesson">
+    <view wx:if="{{list.status==-1}}" class="noLesson">
         <image src="/imgs/noLike.png"></image>
         <text>暂无收藏！</text>
     </view>
-    <block wx:for="{{list}}" wx:key="index">
+    <block wx:for="{{list.data}}" wx:key="index">
         <view class="item"
               data-like-id="{{item.id}}"
               data-lesson-id="{{item.productId}}"

@@ -21,10 +21,16 @@ Page({
 //  获取新闻详情页数据
   async getDetail (id) {
     const newsDetail = await NewsData.getDetail(id);
-    let time = newsDetail.data.createTime.split("T")[0];
+    let time = newsDetail.data.updateTime.split("T")[0];
     this.setData({
       newsDetail: newsDetail.data,
       time
     })
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

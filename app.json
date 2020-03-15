@@ -11,7 +11,8 @@
     "pages/like/like",
     "pages/pay/pay",
     "pages/order/order",
-    "pages/newsDetail/newsDetail"
+    "pages/newsDetail/newsDetail",
+    "pages/share"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -4,7 +4,7 @@
         <view class="right">
             <text class="title">{{data.title}}</text>
             <text class="content">{{data.subTitle}}</text>
-            <text class="date">{{data.createTime}}</text>
+            <text class="date">{{data.updateTime}}</text>
         </view>
     </view>
 </view>

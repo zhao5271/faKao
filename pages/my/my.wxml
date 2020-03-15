@@ -6,7 +6,7 @@
                   bg-color="#9a0000"
                   height="200"
                   bind:getuserinfo="onGotUserInfo">
-            <l-avatar src="{{userInfo.avatarUrl ? userInfo.avatarUrl : '/imgs/avatar.png'}}"
+            <l-avatar src="{{userInfo.avatarUrl ? userInfo.avatarUrl : '/imgs/avatar.jpg'}}"
                       shape="circle"
                       size="138"
                       text="{{userInfo.nickName ? userInfo.nickName : '请登录'}}"

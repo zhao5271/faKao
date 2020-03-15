@@ -19,6 +19,13 @@ Page({
     await this.getNewsCategory()
     await this.initNewsList()
   },
+  // 进入新闻详情页
+  onGotoNewsDetail (event) {
+    const id = Number.parseInt(event.currentTarget.id)
+    wx.navigateTo({
+      url: `/pages/newsDetail/newsDetail?id=${id}`
+    })
+  },
 
   goDetail (event) {
     const id =
@@ -28,6 +35,11 @@ Page({
 //  获取新闻列表数据
   async initNewsList () {
     const newsList = await NewsData.getList(this.data.newsCategory[0].id);
+    newsList.data.list.forEach(news => {
+      news.updateTime = news.updateTime.split("T")[0];
+      news.createTime = news.createTime.split("T")[0];
+    });
+    console.log(newsList.data.list);
     this.setData({
       newsList: newsList.data.list
     })
@@ -51,6 +63,10 @@ Page({
   //  点击segment选项卡，加载数据
   async onSegChange(e) {
     const newsList = await NewsData.getList(e.detail.activeKey)
+    newsList.data.list.forEach(news => {
+      news.updateTime = news.updateTime.split("T")[0];
+      news.createTime = news.createTime.split("T")[0];
+    });
     this.setData({
       newsList: newsList.data.list
     })
@@ -60,5 +76,11 @@ Page({
     wx.navigateTo({
       url:`/pages/newsDetail/newsDetail?id=${event.detail.id}`
     })
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })
