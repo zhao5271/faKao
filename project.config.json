@@ -6,6 +6,7 @@
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
@@ -22,10 +23,10 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
-		"enhance": true
+		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.10.2",
+	"libVersion": "2.10.3",
 	"appid": "wxc698e508ef75ee6b",
 	"projectname": "faKao",
 	"debugOptions": {
@@ -147,6 +148,27 @@
 					"name": "课程详情页",
 					"pathName": "pages/lessonDetail/lessonDetail",
 					"query": "id=3",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/newsDetail/newsDetail",
+					"pathName": "pages/newsDetail/newsDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/newsDetail/newsDetail",
+					"pathName": "pages/newsDetail/newsDetail",
+					"query": "id=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/newsDetail/newsDetail",
+					"pathName": "pages/newsDetail/newsDetail?id=1",
+					"query": "",
 					"scene": null
 				}
 			]

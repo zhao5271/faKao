@@ -43,7 +43,7 @@
     <image class="ad" src="/imgs/ad.png"></image>
 <!--课程列表-->
     <view class="lesson">
-        <view class="title">直播好课</view>
+        <view class="title">热门推荐</view>
         <block wx:for="{{lessones}}" wx:key="index">
             <s-lesson lesson="{{item}}" wx:if="{{item.status == 1}}"></s-lesson>
         </block>
