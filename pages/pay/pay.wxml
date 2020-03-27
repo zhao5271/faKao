@@ -3,14 +3,16 @@
         <div>
             <image src="{{data.img}}"></image>
             <view class="right">
-                <div class="title">
+                <view class="title">
                     <text>法考直通车</text>
-                    <text>{{data.title}},限时优惠，今天截至。</text>
-                </div>
-                <div class="price">
+                    <text>{{data.title}}</text>
+                    <view>一经购买，不可退换。</view>
+                    <picker></picker>
+                </view>
+                <view class="price">
                     <l-price value="{{data.price}}" color="#E64239" size="36"></l-price>
                     <text>x1</text>
-                </div>
+                </view>
             </view>
         </div>
         <div>
